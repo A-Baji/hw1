@@ -17,9 +17,7 @@ IDE - Repl.it
 Params: x coordinate, y coordinate, and radius of the circle
 
 Use: Lights up a pixel depending on given x and y coordinates.
-
-
-
+---
 
 *rasterizeArc:*
 
