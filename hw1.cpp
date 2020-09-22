@@ -45,7 +45,6 @@ void renderPixel(int x, int y, int radius) {
 }
 
 void rasterizeArc() {
-	// TODO:  rasterize the arc using renderPixel to light up pixels
 	int x = 0;
 	int y = 100;
 	int d = 1 - 100;
