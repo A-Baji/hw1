@@ -10,25 +10,23 @@ IDE - Repl.it
 
 **Functions:**
 
-*renderPixel*
+*renderPixel:*
 
-"""
+
 
 Params: x coordinate, y coordinate, and radius of the circle
 
 Use: Lights up a pixel depending on given x and y coordinates.
 
-"""
 
 
-*rasterizeArc*
 
-"""
+*rasterizeArc:*
+
+
 
 No params
 
 Use: Creates two semi circles, one where x >= 0 with a radius of 100,
 
      and one where y >= 0 with a radius of 150.
-     
-"""
