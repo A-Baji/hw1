@@ -3,9 +3,9 @@ COSC 4370 homework 1
 
 **Environment:**
 
-Language - C++
+* Language: C++
 
-IDE - Repl.it
+* IDE: Repl.it
 
 
 **Functions:**
