@@ -10,18 +10,14 @@ IDE - Repl.it
 
 **Functions:**
 
-*renderPixel:*
-
-
+* *renderPixel:*
 
 Params: x coordinate, y coordinate, and radius of the circle
 
 Use: Lights up a pixel depending on given x and y coordinates.
----
-
-*rasterizeArc:*
 
 
+* *rasterizeArc:*
 
 No params
 
