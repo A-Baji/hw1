@@ -21,4 +21,4 @@ IDE - Repl.it
 
 * No params
 
-* Use: Creates two semi circles, one where x >= 0 with a radius of 100, and one where y >= 0 with a radius of 150.
+* Use: Creates two semi circles, one with a radius of 100 where x >= 0, and one with a radius of 150 where y >= 0.
