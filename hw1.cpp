@@ -33,13 +33,13 @@ void renderPixel(int x, int y, int radius) {
 	image[x][y] = 1;
 	image[y][x] = 1;
 
-	// Draws the other half of semicircle of radius 100 for x >= 0
+	// Draws the other quadrant of semicircle of radius 100 for x >= 0
 	if (radius == 100) {
 		image[300-x][y] = 1; // Draws octant from 315 degrees to 360 degrees
 		image[300-y][x] = 1; // Draws octant from 270 degrees to 315 degrees
 	}
 	
-	// Draws the other half of semicircle of radius 150 for y >= 0
+	// Draws the other quadrant of semicircle of radius 150 for y >= 0
 	if (radius == 150) {
 		image[x][300-y] = 1; // Draws octant from 135 degrees to 180 degrees
 		image[y][300-x] = 1; // Draws octant from 90 degree to 135 degrees
