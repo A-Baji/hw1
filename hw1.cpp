@@ -33,23 +33,29 @@ void renderPixel(int x, int y, int radius) {
 	image[x][y] = 1;
 	image[y][x] = 1;
 
+	// Draws the other half of semicircle of radius 100 for x >= 0
 	if (radius == 100) {
-		image[300-x][y] = 1;
-		image[300-y][x] = 1;
+		image[300-x][y] = 1; // Draws octant from 315 degrees to 360 degrees
+		image[300-y][x] = 1; // Draws octant from 270 degrees to 315 degrees
 	}
+	
+	// Draws the other half of semicircle of radius 150 for y >= 0
 	if (radius == 150) {
-		image[x][300-y] = 1;
-		image[y][300-x] = 1;
+		image[x][300-y] = 1; // Draws octant from 135 degrees to 180 degrees
+		image[y][300-x] = 1; // Draws octant from 90 degree to 135 degrees
 	}
 
 }
 
 void rasterizeArc(int radius) {
-	// TODO:  rasterize the arc using renderPixel to light up pixels
+	// Code referenced from textbook, chapter 3.3.2, page 86
 	int x = 0;
 	int y = radius;
 	int d = 1 - radius;
-	renderPixel(x+150, y+150, radius);
+	
+	// Offset by 150 to find center of minimum sized window of 300 pixels
+	// This is necessary to fit the semicircle of radius 150
+	renderPixel(x+150, y+150, radius); 
 
 	while (y > x) {
 		if (d < 0)
@@ -76,7 +82,7 @@ int main(int argc, char *argv[]) {
 #else
 	sscanf(argv[1], "%d", &size);
 #endif
-	if (size < 300) {
+	if (size < 300) { // Changed minimum size requirement
 		std::cout << "Image size must be 300 or greater.\n";
 		return 0;
 	}
@@ -85,6 +91,7 @@ int main(int argc, char *argv[]) {
 	image = new bool*[size+1];
 	for (int i = 0; i <= size; i++) image[i] = new bool[size+1];
 	
+	// Calling rasterizeArc with 150 and 100 instead of size
 	rasterizeArc(150);
 	rasterizeArc(100);
 	
@@ -93,7 +100,7 @@ int main(int argc, char *argv[]) {
 #ifdef _WIN32
 	sprintf_s(filename, 50, "circle.ppm");
 #else
-	sprintf(filename, "circle.ppm");
+	sprintf(filename, "circle.ppm"); // Changed file name
 #endif
 	
 	std::ofstream outfile(filename);
