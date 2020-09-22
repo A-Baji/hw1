@@ -44,11 +44,12 @@ void renderPixel(int x, int y, int radius) {
 
 }
 
-void rasterizeArc() {
+void rasterizeArc(int radius) {
+	// TODO:  rasterize the arc using renderPixel to light up pixels
 	int x = 0;
-	int y = 100;
-	int d = 1 - 100;
-	renderPixel(x+150, y+150, 100);
+	int y = radius;
+	int d = 1 - radius;
+	renderPixel(x+150, y+150, radius);
 
 	while (y > x) {
 		if (d < 0)
@@ -58,23 +59,7 @@ void rasterizeArc() {
 			y--;
 		}
 		x++;
-		renderPixel(x+150, y+150, 100);
-	}
-
-	x = 0;
-	y = 150;
-	d = 1 - 150;
-	renderPixel(x+150, y+150, 150);
-
-	while (y > x) {
-		if (d < 0)
-			d += 2*x+3;
-		else {
-			d += 2*(x-y)+5;
-			y--;
-		}
-		x++;
-		renderPixel(x+150, y+150, 150);
+		renderPixel(x+150, y+150, radius);
 	}
 }
 
@@ -91,8 +76,8 @@ int main(int argc, char *argv[]) {
 #else
 	sscanf(argv[1], "%d", &size);
 #endif
-	if (size <= 0) {
-		std::cout << "Image must be of positive size.\n";
+	if (size < 300) {
+		std::cout << "Image size must be 300 or greater.\n";
 		return 0;
 	}
 	
@@ -100,13 +85,15 @@ int main(int argc, char *argv[]) {
 	image = new bool*[size+1];
 	for (int i = 0; i <= size; i++) image[i] = new bool[size+1];
 	
-	rasterizeArc();
+	rasterizeArc(150);
+	rasterizeArc(100);
+	
 	
 	char filename[50];
 #ifdef _WIN32
-	sprintf_s(filename, 50, "circle%d.ppm", size);
+	sprintf_s(filename, 50, "circle.ppm");
 #else
-	sprintf(filename, "circle%d.ppm", size);
+	sprintf(filename, "circle.ppm");
 #endif
 	
 	std::ofstream outfile(filename);
