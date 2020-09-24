@@ -2,6 +2,7 @@
 COSC 4370 homework 1
 
 **Environment:**
+* OS: Windows 10
 
 * Language: C++
 
