@@ -53,8 +53,8 @@ void rasterizeArc(int radius) {
 	int y = radius;
 	int d = 1 - radius;
 	
-	// Offset by 150 to find center of minimum sized window of 300 pixels
-	// This is necessary to fit the semicircle of radius 150
+	// Offset by 150
+	// This is necessary to fit the other quadrants of the semicircles
 	renderPixel(x+150, y+150, radius); 
 
 	while (y > x) {
