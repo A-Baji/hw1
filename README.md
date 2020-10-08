@@ -23,10 +23,3 @@ PSID: 1776794
 * Type: Void
 * Params: radius
 * Use: Creates an arc with the given radius
-
-**How to run:**
-1. Download hw1.cpp
-2. Compile in linux with: 
-`g++ hw1.cpp`
-3. Run the program with:
-`./a.out 300`
